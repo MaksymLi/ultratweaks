@@ -1,0 +1,16 @@
+.button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  border-radius: 160px;
+  font-size: 16px;
+  color: var(--white);
+  font-weight: 700;
+  background: var(--gradient);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.button:hover{
+  transform: scale(95%);
+}

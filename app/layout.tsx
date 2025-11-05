@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
+import { ClientSessionProvider } from "./providers/ClientSessionProvider";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const jetbrains_mono = JetBrains_Mono({
+  variable: "--font-jetbrains_mono",
   subsets: ["latin"],
 });
 
@@ -20,8 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={montserrat.variable}>
-        {children}
+      <body className={jetbrains_mono.variable}>
+        <ClientSessionProvider>{children}</ClientSessionProvider>
         <Analytics />
       </body>
     </html>
