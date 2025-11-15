@@ -19,7 +19,7 @@ const Nav = () => {
             height={32}
             alt='logo'
           />
-          <p>LeadsParser</p>
+          <p>UltraTweaks</p>
         </section>
         
         <div

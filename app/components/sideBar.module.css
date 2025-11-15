@@ -17,6 +17,7 @@
 }
 .top {
   width: 100%;
+  min-height: 24px;
   display: flex;
   justify-content: flex-end;
   overflow: hidden;
@@ -53,7 +54,7 @@
 .menuItemIcon{
   filter: brightness(0) saturate(100%) invert(64%) sepia(0%) saturate(166%) hue-rotate(197deg) brightness(97%) contrast(94%);
 }
-.menuItem.active{
+.menuItem.active .menuItemIcon{
   filter: brightness(0) saturate(100%) invert(99%) sepia(98%) saturate(50%) hue-rotate(82deg) brightness(113%) contrast(96%);
 }
 

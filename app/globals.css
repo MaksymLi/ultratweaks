@@ -27,7 +27,7 @@ body {
 }
 
 body {
-  color: var(--muted);
+  color: var(--white);
   background: var(--black);
 }
 
@@ -36,16 +36,20 @@ a {
   text-decoration: none;
 }
 
-.container{
-  width: 100%;
-  display: flex;
-  padding: 16px;
-}
+
 
 .heading-accent{
   background: linear-gradient(90deg, #FAFAFA, #DC3DD5);
   color: transparent;
   background-clip: text;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  padding: 16px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (min-width: 768px){

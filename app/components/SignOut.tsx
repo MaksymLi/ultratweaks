@@ -1,15 +1,15 @@
 "use client"
 
 import { signOut } from "next-auth/react"
+import styles from "./auth.module.css"
+import Button from "./Button"
 
 const SignOut = () => {
   return (
-    <main>
-      <h1>Are you sure?</h1>
+    <main className={styles.main}>
+      <h1 className={styles.heading}>Are you sure?</h1>
 
-      <button onClick={() => signOut({ callbackUrl: "/" })}>
-        Sign Out
-      </button>
+      <Button text="Sign Out" action={() => signOut({ callbackUrl: "/" })} />
     </main>
   )
 }

@@ -12,9 +12,9 @@ interface SideBarProps {
 
 const menuItemData = [
   { label: "Overview", icon: "/lucide_layout-dashboard", href: "/dashboard" },
+  { label: "Projects", icon: "/lucide_clipboard-list", href: "/dashboard/projects" },
   { label: "Leads", icon: "/lucide_users-round", href: "/dashboard/leads" },
   { label: "Analytics", icon: "/lucide_chart-column", href: "/dashboard/analytics" },
-  { label: "Setup", icon: "/lucide_settings", href: "/dashboard/setup" },
   { label: "Billing", icon: "/lucide_wallet", href: "/dashboard/billing" },
   { label: "Sign Out", icon: "/si_sign-out-alt-fill", href: "/auth/signout" },
 ]

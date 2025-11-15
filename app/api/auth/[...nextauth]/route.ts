@@ -1,10 +1,9 @@
 import NextAuth, { NextAuthOptions } from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
-import GitHubProvider from "next-auth/providers/github"
 import DiscordProvider from "next-auth/providers/discord"
-import RedditProvider from "next-auth/providers/reddit"
 import clientPromise from "@/app/lib/mongodb"
 import { ObjectId } from "mongodb"
+import { IUser } from "@/app/lib/types"
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -12,42 +11,41 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!
     }),
-    GitHubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID!,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
-    }),
     DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID!,
       clientSecret: process.env.DISCORD_CLIENT_SECRET!,
-    }),
-    RedditProvider({
-      clientId: process.env.REDDIT_CLIENT_ID!,
-      clientSecret: process.env.REDDIT_CLIENT_SECRET!,
-    }),
+    })
   ],
   session: { strategy: "jwt" },
 
   callbacks: {
     async signIn({ user }) {
-      const client = await clientPromise
-      const db = client.db("leadsParser")
-      const users = db.collection("users")
+      try {
+        if (!user?.email) return false
 
-      await users.findOneAndUpdate(
-        { email: user.email },
-        {
-          $set: {
-            name: user.name,
-            avatar: user.image,
-            lastLogin: new Date()
+        const client = await clientPromise
+        const db = client.db("leadsParser")
+        const users = db.collection<IUser>("users")
+
+        await users.findOneAndUpdate(
+          { email: user.email },
+          {
+            $set: {
+              name: user.name,
+              avatar: user.image,
+              lastLogin: new Date()
+            },
+            $setOnInsert: {
+              email: user.email,
+              createdAt: new Date()
+            }
           },
-          $setOnInsert: {
-            email: user.email,
-            createdAt: new Date()
-          }
-        },
-        { upsert: true, returnDocument: "after" }
-      )
+          { upsert: true, returnDocument: "after" }
+        )
+      } catch (err) {
+        console.error("❌ signIn DB error:", err)
+        return true
+      }
 
       return true
     },

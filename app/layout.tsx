@@ -10,7 +10,7 @@ const jetbrains_mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LeadsParser",
+  title: "UltraTweaks",
   description: "Lorem ipsum",
 };
 
