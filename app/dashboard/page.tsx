@@ -1,8 +1,8 @@
-export default async function Dashboard() {
+import Link from "next/link";
+
+export default function Dashboard() {
 
   return (
-    <>
-      <main></main>
-    </>
+    <Link href="/auth/signout">Sign Out</Link>
   )
 }
