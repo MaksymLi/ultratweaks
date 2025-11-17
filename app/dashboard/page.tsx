@@ -1,6 +1,8 @@
-export default async function Overview() {
+export default async function Dashboard() {
 
   return (
-    <main>Overview</main>
+    <>
+      <main></main>
+    </>
   )
 }

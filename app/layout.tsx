@@ -3,6 +3,7 @@ import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 import { ClientSessionProvider } from "./providers/ClientSessionProvider";
+import Nav from "./components/Nav"
 
 const jetbrains_mono = JetBrains_Mono({
   variable: "--font-jetbrains_mono",
@@ -22,7 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={jetbrains_mono.variable}>
-        <ClientSessionProvider>{children}</ClientSessionProvider>
+        <ClientSessionProvider>
+          <Nav />
+          {children}
+        </ClientSessionProvider>
         <Analytics />
       </body>
     </html>

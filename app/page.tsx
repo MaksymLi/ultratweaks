@@ -1,11 +1,44 @@
-import Nav from "./components/Nav"
+import LoginButton from "./components/LoginButton";
 
 export default async function Home() {
 
   return (
-    <>
-      <Nav />
-      <main></main>
-    </>
+    <main>
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+      <LoginButton />
+    </main>
   )
 }
